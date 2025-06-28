@@ -226,7 +226,6 @@ function RequestCard({ request, userRole, onUpdateStatus }: RequestCardProps) {
           <div 
             className="request-message text-gray-800 bg-gray-50 p-3 rounded-md" 
             data-testid={`request-message-${request.id}`}
-            mentee={request.mentee?.id.toString()}
           >
             {request.message}
           </div>

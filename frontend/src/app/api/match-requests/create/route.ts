@@ -6,8 +6,17 @@ const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:8000/api';
 
 export async function POST(request: Request) {
   try {
+    // Get the token from cookies or Authorization header
     const cookieStore = cookies();
-    const token = cookieStore.get('token')?.value;
+    let token = cookieStore.get('token')?.value;
+    
+    // If token not found in cookies, try to get it from Authorization header
+    if (!token) {
+      const authHeader = request.headers.get('authorization');
+      if (authHeader && authHeader.startsWith('Bearer ')) {
+        token = authHeader.substring(7);
+      }
+    }
 
     if (!token) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });

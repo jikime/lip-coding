@@ -12,7 +12,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 export default function LoginPage() {
   const [formData, setFormData] = useState({
     email: 'mentor@test.com',
-    password: 'password123',
+    password: 'mentor123',
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -43,8 +43,8 @@ export default function LoginPage() {
 
   const quickLogin = (role: 'mentor' | 'mentee') => {
     const testAccounts = {
-      mentor: { email: 'mentor@test.com', password: 'password123' },
-      mentee: { email: 'mentee@test.com', password: 'password123' }
+      mentor: { email: 'mentor@test.com', password: 'mentor123' },
+      mentee: { email: 'mentee@test.com', password: 'mentee123' }
     };
     setFormData(testAccounts[role]);
   };

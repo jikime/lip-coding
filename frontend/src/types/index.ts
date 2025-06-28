@@ -29,6 +29,24 @@ export interface MatchRequest {
   menteeId: number;
   message: string;
   status: 'pending' | 'accepted' | 'rejected' | 'cancelled';
+  created_at?: string;
+  mentor?: {
+    id?: number;
+    user?: {
+      name?: string;
+      email?: string;
+    };
+    skills?: string;
+    experience_years?: number;
+  };
+  mentee?: {
+    id?: number;
+    user?: {
+      name?: string;
+      email?: string;
+    };
+    interests?: string;
+  };
 }
 
 export interface AuthCredentials {
