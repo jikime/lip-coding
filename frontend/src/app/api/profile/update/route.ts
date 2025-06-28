@@ -6,15 +6,25 @@ const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:8000/api';
 
 export async function PUT(request: Request) {
   try {
-    // Get the token from cookies
+    // Get the token from cookies or Authorization header
     const cookieStore = cookies();
-    const token = cookieStore.get('token')?.value;
+    let token = cookieStore.get('token')?.value;
     
     console.log('Profile update request received');
+    
+    // If token not found in cookies, try to get it from Authorization header
+    if (!token) {
+      const authHeader = request.headers.get('authorization');
+      if (authHeader && authHeader.startsWith('Bearer ')) {
+        token = authHeader.substring(7);
+        console.log('Token found in Authorization header');
+      }
+    }
+    
     console.log('Token exists:', !!token);
 
     if (!token) {
-      console.log('No token found in cookies');
+      console.log('No token found in cookies or Authorization header');
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
