@@ -48,8 +48,15 @@ export const authAPI = {
 
 export const profileAPI = {
   async updateProfile(data: ProfileUpdateData): Promise<User> {
-    const response = await api.put('/profile/update', data);
-    return response.data;
+    console.log('API client: sending profile update request');
+    try {
+      const response = await api.put('/profile/update', data);
+      console.log('API client: profile update successful');
+      return response.data;
+    } catch (error: any) {
+      console.error('API client: profile update error', error.response?.data || error.message);
+      throw error;
+    }
   },
 
   async getProfileImage(role: string, id: number): Promise<string> {

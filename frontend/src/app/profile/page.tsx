@@ -38,10 +38,13 @@ export default function ProfilePage() {
         ...(user.role === 'mentor' && { skills: formData.skills.split(',').map(s => s.trim()) }),
       };
 
-      await profileAPI.updateProfile(updateData);
+      console.log('Submitting profile update:', updateData);
+      const updatedUser = await profileAPI.updateProfile(updateData);
+      console.log('Profile update success:', updatedUser);
       setMessage('프로필이 성공적으로 업데이트되었습니다.');
     } catch (err: any) {
-      setMessage('프로필 업데이트에 실패했습니다.');
+      console.error('Profile update failed:', err.response?.data || err.message);
+      setMessage(`프로필 업데이트에 실패했습니다: ${err.response?.data?.error || err.message}`);
     } finally {
       setLoading(false);
     }
