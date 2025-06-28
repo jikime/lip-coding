@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 import { User, SignupData, AuthCredentials, ProfileUpdateData, Mentor, MatchRequest } from '@/types';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8000/api',
+  baseURL: 'http://localhost:8080/api',
   headers: {
     'Content-Type': 'application/json',
   },
@@ -60,7 +60,7 @@ export const profileAPI = {
   },
 
   async getProfileImage(role: string, id: number): Promise<string> {
-    const response = await axios.get(`http://localhost:8000/api/images/${role}/${id}`, {
+    const response = await axios.get(`http://localhost:8080/api/images/${role}/${id}`, {
       responseType: 'blob',
     });
     return URL.createObjectURL(response.data);

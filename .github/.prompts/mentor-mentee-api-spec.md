@@ -1,6 +1,6 @@
 # 멘토-멘티 매칭 앱 API 명세서
 
-- 모든 API 엔드포인트는 `http://localhost:8000/api/` 하위 경로를 기준으로 정의했습니다.
+- 모든 API 엔드포인트는 `http://localhost:8080/api/` 하위 경로를 기준으로 정의했습니다.
 - 모든 인증이 필요한 요청에는 반드시 `Authorization: Bearer <token>` 헤더를 포함해야 합니다.
 - 모든 요청과 응답은 JSON 형식의 개체를 주고 받아야 합니다.
 

@@ -91,7 +91,7 @@ npm start
 ## 환경 설정
 
 API 엔드포인트는 `next.config.js`에서 프록시로 설정되어 있습니다:
-- 개발 환경: `http://localhost:8000/api`
+- 개발 환경: `http://localhost:8080/api`
 - 프로덕션 환경: 배포된 백엔드 URL로 변경 필요
 
 ## API 연동

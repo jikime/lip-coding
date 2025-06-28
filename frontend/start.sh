@@ -47,10 +47,10 @@ fi
 
 # Check if backend is running
 echo "🔍 Checking if backend is running..."
-if curl -s http://localhost:8000/health > /dev/null 2>&1; then
-    echo "✅ Backend is running on http://localhost:8000"
+if curl -s http://localhost:8080/health > /dev/null 2>&1; then
+    echo "✅ Backend is running on http://localhost:8080"
 else
-    echo "⚠️  Backend is not running on http://localhost:8000"
+    echo "⚠️  Backend is not running on http://localhost:8080"
     echo "   Please make sure the backend server is started first"
     echo "   The frontend will still start, but API calls will fail"
     echo ""

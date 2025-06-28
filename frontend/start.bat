@@ -55,9 +55,9 @@ if not exist "node_modules" (
 
 REM Check if backend is running
 echo 🔍 Checking if backend is running...
-curl -s http://localhost:8000/health >nul 2>&1
+curl -s http://localhost:8080/health >nul 2>&1
 if %errorlevel% neq 0 (
-    echo ⚠️  Backend is not running on http://localhost:8000
+    echo ⚠️  Backend is not running on http://localhost:8080
     echo    Please make sure the backend server is started first
     echo    The frontend will still start, but API calls will fail
     echo.
@@ -68,7 +68,7 @@ if %errorlevel% neq 0 (
         exit /b 1
     )
 ) else (
-    echo ✅ Backend is running on http://localhost:8000
+    echo ✅ Backend is running on http://localhost:8080
 )
 
 echo.
