@@ -21,7 +21,7 @@ pip install fastapi uvicorn sqlalchemy bcrypt "python-jose[cryptography]"
 
 # Start the server in the background
 echo "Starting server..."
-nohup python -m uvicorn main:app --host 0.0.0.0 --port 8000 > server.log 2>&1 &
+nohup python -m uvicorn main:app --host 0.0.0.0 --port 8080 > server.log 2>&1 &
 
 # Save the PID to a file
 echo $! > server.pid
