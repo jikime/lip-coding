@@ -503,7 +503,7 @@ async def update_request_status(
     return {"message": f"Request {status} successfully"}
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8080)@app.get("/api/images/{role}/{user_id}")
+    uvicorn.run(app, host="0.0.0.0", port=8000)@app.get("/api/images/{role}/{user_id}")
 async def get_profile_image(
     role: str, 
     user_id: int,

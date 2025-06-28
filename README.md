@@ -91,7 +91,7 @@ This project implements a mentor-mentee matching platform where:
    ```
 4. Run the FastAPI server:
    ```
-   uvicorn main:app --host 0.0.0.0 --port 8080
+   uvicorn main:app --host 0.0.0.0 --port 8000
    ```
 5. Create test accounts (optional):
    ```
@@ -147,4 +147,4 @@ The application is configured for deployment, with environment variables handlin
 BACKEND_URL=http://api.example.com  # Production backend URL
 ```
 
-For local development, the default backend URL is `http://localhost:8080/api`.
+For local development, the default backend URL is `http://localhost:8000/api`.
